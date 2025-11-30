@@ -1,71 +1,93 @@
 "use client";
-import { useState, FormEvent } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 export default function AssociateForm() {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_itd5qa8";
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ASSOCIE || "template_vecqcl5"; 
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "BlCMU7LtnkErAifEt";
+    const formData = {
+      nom: e.target.nom.value,
+      email: e.target.email.value,
+      telephone: e.target.telephone?.value || "",
+      // Si c'est le select, on prend sa valeur, sinon 0
+      montant: e.target.montant.value || 0, 
+      message: e.target.message?.value || ""
+    };
 
-    emailjs.sendForm(serviceId, templateId, e.currentTarget, publicKey)
-      .then(() => {
-        setLoading(false);
-        setStatus('success');
-      }, (error) => {
-        console.error(error);
-        setLoading(false);
-        setStatus('error');
+    try {
+      const response = await fetch('/api/invest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        alert("✅ Dossier bien reçu ! Nous revenons vers vous sous 24h.");
+        e.target.reset(); // Vide le formulaire
+      } else {
+        alert("❌ Une erreur est survenue.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("❌ Erreur de connexion.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  if (status === 'success') return (
-    <div className="p-6 bg-green-50 border border-green-200 rounded-xl text-green-800">✅ Demande transmise.</div>
-  );
-
   return (
-    <form onSubmit={sendEmail} className="mt-6 grid gap-4 max-w-xl">
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-           <label className="block text-sm font-medium mb-1">Nom complet <span className="text-red-600">*</span></label>
-           <input name="nom" required className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Votre nom" />
+    <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-8">
+      
+      {/* CHAMP NOM */}
+      <div className="grid md:grid-cols-2 gap-4 col-span-2">
+        <div className="col-span-2 sm:col-span-1">
+          <label className="block text-sm font-medium mb-1">Nom complet <span className="text-red-600">*</span></label>
+          <input name="nom" required className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Votre nom" />
         </div>
-        <div>
-           <label className="block text-sm font-medium mb-1">Email <span className="text-red-600">*</span></label>
-           <input name="email" type="email" required className="w-full p-3 border border-gray-300 rounded-lg" placeholder="email@..." />
+
+        {/* CHAMP EMAIL */}
+        <div className="col-span-2 sm:col-span-1">
+          <label className="block text-sm font-medium mb-1">Email <span className="text-red-600">*</span></label>
+          <input name="email" type="email" required className="w-full p-3 border border-gray-300 rounded-lg" placeholder="exemple@mail.com" />
         </div>
       </div>
 
-      {/* AJOUT ICI : Champ Téléphone Visible */}
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-           <label className="block text-sm font-medium mb-1">Téléphone <span className="text-red-600">*</span></label>
-           <input name="telephone" type="tel" required className="w-full p-3 border border-gray-300 rounded-lg" placeholder="+33 6..." />
-        </div>
-        <div>
-           <label className="block text-sm font-medium mb-1">Ticket envisagé</label>
-           <select name="ticket" className="w-full p-3 border border-gray-300 rounded-lg bg-white">
-              <option value="10-25k">10 – 25 k€</option>
-              <option value="25-50k">25 – 50 k€</option>
-              <option value="50-100k">50 – 100 k€</option>
-              <option value=">100k">&gt; 100 k€</option>
-           </select>
-        </div>
+      {/* CHAMP TÉLÉPHONE */}
+      <div className="col-span-2">
+        <label className="block text-sm font-medium mb-1">Téléphone</label>
+        <input name="telephone" type="tel" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="06 12 34 56 78" />
       </div>
 
-      <div>
-         <label className="block text-sm font-medium mb-1">Thèse & Préférences</label>
-         <textarea name="these" rows={2} className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Secteurs, géo, horizon..."></textarea>
+      {/* CHAMP TICKET (MONTANT) */}
+      <div className="col-span-2">
+        <label className="block text-sm font-medium mb-1">Ticket envisagé</label>
+        <select name="montant" className="w-full p-3 border border-gray-300 rounded-lg bg-white">
+          <option value="10000">10 - 25 k€</option>
+          <option value="25000">25 - 50 k€</option>
+          <option value="50000">50 - 100 k€</option>
+          <option value="100000">+ 100 k€</option>
+        </select>
       </div>
-      <button type="submit" disabled={loading} className="w-full py-3 bg-white border-2 border-black text-black font-bold rounded-lg hover:bg-black hover:text-white transition">
-        {loading ? '...' : 'Envoyer ma demande'}
-      </button>
+
+      {/* CHAMP MESSAGE */}
+      <div className="col-span-2">
+        <label className="block text-sm font-medium mb-1">Thèse & Préférences</label>
+        <textarea name="message" rows={2} className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Secteurs, géo, horizon..."></textarea>
+      </div>
+
+      {/* BOUTON D'ENVOI */}
+      <div className="col-span-2">
+        <button 
+          type="submit" 
+          disabled={loading} 
+          className="w-full py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition disabled:opacity-50"
+        >
+          {loading ? 'Envoi en cours...' : 'Envoyer ma demande'}
+        </button>
+      </div>
     </form>
   );
 }
