@@ -12,7 +12,11 @@ export default function Home() {
         <div className="max-w-[1100px] mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             {/* Logo "L" supprimé ici */}
-            <span className="font-serif text-xl font-bold tracking-tight text-black">L&A Group</span>
+                      {/* On crée une boîte de 200px de large (w-[200px]) */}
+{/* On laisse la hauteur automatique */}
+<div className="w-[180px] md:w-[220px] relative">
+  <Logo className="w-full h-auto text-black" />
+</div>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             <Link href="#apropos" className="hover:text-black transition-colors">À propos</Link>
