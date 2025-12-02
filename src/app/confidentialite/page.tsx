@@ -38,7 +38,7 @@ export default function Confidentialite() {
 
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">5. Vos droits</h2>
-        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour exercer ce droit, contactez-nous à : <strong>[VOTRE EMAIL]</strong>.</p>
+        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour exercer ce droit, contactez-nous à : <strong>contact.l.et.associes.group@gmail.com</strong>.</p>
       </section>
     </main>
   );
