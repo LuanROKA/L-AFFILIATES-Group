@@ -4,7 +4,6 @@ export default function BrandLogo({ className }: { className?: string }) {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
-      // J'élargis la zone de travail (viewBox) pour accueillir le nom long
       viewBox="0 0 500 120" 
       fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
@@ -13,7 +12,7 @@ export default function BrandLogo({ className }: { className?: string }) {
     >
       <title>L-PARTNERS GROUP Logo</title>
       
-      {/* LIGNE 1 : L-PARTNERS (Serif, Majestueux) */}
+      {/* LIGNE 1 : L-PARTNERS */}
       <text 
         x="250" 
         y="70" 
@@ -26,7 +25,7 @@ export default function BrandLogo({ className }: { className?: string }) {
         L-PARTNERS
       </text>
       
-      {/* LIGNE 2 : GROUP (Plus petit, espacé, centré) */}
+      {/* LIGNE 2 : GROUP */}
       <text 
         x="250" 
         y="105" 
@@ -39,12 +38,7 @@ export default function BrandLogo({ className }: { className?: string }) {
         GROUP
       </text>
       
-      {/* Ligne de soulignement optionnelle */}
       <rect x="150" y="115" width="200" height="3" />
     </svg>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e413b0cbc281b3e0712773b2b936c82f72875c35
