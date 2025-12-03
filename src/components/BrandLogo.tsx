@@ -43,4 +43,8 @@ export default function BrandLogo({ className }: { className?: string }) {
       <rect x="150" y="115" width="200" height="3" />
     </svg>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e413b0cbc281b3e0712773b2b936c82f72875c35
