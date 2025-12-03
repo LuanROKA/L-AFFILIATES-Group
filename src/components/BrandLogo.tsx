@@ -4,35 +4,43 @@ export default function BrandLogo({ className }: { className?: string }) {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
-      // Je définis une zone de travail carrée/rectangulaire propre
-      viewBox="0 0 300 220" 
+      // J'élargis la zone de travail (viewBox) pour accueillir le nom long
+      viewBox="0 0 500 120" 
       fill="currentColor"
-      // On s'assure que le ratio est respecté
       preserveAspectRatio="xMidYMid meet"
       className={className}
-      aria-label="L&A Group Logo"
+      aria-label="L-PARTNERS GROUP Logo"
     >
-      {/* RECONSTRUCTION DU LOGO EN VECTEURS PROPRES 
-         J'utilise la police Serif (Times/Playfair) pour coller à votre identité
-      */}
+      <title>L-PARTNERS GROUP Logo</title>
       
-      {/* Le grand L */}
-      <text x="10" y="140" fontSize="160" fontFamily="Times New Roman, serif" fontWeight="bold">L</text>
+      {/* LIGNE 1 : L-PARTNERS (Serif, Majestueux) */}
+      <text 
+        x="250" 
+        y="70" 
+        fontSize="62" 
+        fontFamily="Times New Roman, serif" 
+        fontWeight="bold" 
+        textAnchor="middle" 
+        letterSpacing="2"
+      >
+        L-PARTNERS
+      </text>
       
-      {/* Le & (esperluette) au milieu */}
-      <text x="105" y="140" fontSize="160" fontFamily="Times New Roman, serif" fontWeight="bold">&amp;</text>
-      
-      {/* Le grand A */}
-      <text x="200" y="140" fontSize="160" fontFamily="Times New Roman, serif" fontWeight="bold">A</text>
-      
-      {/* Le mot GROUP en dessous, centré */}
-      <text x="150" y="185" fontSize="40" fontFamily="Times New Roman, serif" fontWeight="bold" textAnchor="middle" letterSpacing="6">
+      {/* LIGNE 2 : GROUP (Plus petit, espacé, centré) */}
+      <text 
+        x="250" 
+        y="105" 
+        fontSize="24" 
+        fontFamily="Arial, sans-serif" 
+        fontWeight="normal" 
+        textAnchor="middle" 
+        letterSpacing="12"
+      >
         GROUP
       </text>
       
-      {/* La ligne de soulignement */}
-      <rect x="50" y="200" width="200" height="6" />
-      
+      {/* Ligne de soulignement optionnelle */}
+      <rect x="150" y="115" width="200" height="3" />
     </svg>
   );
 }

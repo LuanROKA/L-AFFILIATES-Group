@@ -78,6 +78,37 @@ export default function AssociateForm() {
         <textarea name="message" rows={2} className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Secteurs, géo, horizon..."></textarea>
       </div>
 
+
+      {/* --- ZONE RGPD --- */}
+      <div className="col-span-2 space-y-4 my-4">
+        
+        {/* Case 1 : CGU (Obligatoire) */}
+        <div className="flex items-start gap-3">
+          <input 
+            type="checkbox" 
+            id="cgu" 
+            required // Obligatoire pour valider le form
+            className="mt-1 w-4 h-4 text-black border-gray-300 rounded focus:ring-black"
+          />
+          <label htmlFor="cgu" className="text-sm text-gray-600">
+            J'ai lu et j'accepte les <a href="/mentions" className="underline text-black hover:text-gray-600">Conditions Générales</a> et la <a href="/confidentialite" className="underline text-black hover:text-gray-600">Politique de Confidentialité</a>. <span className="text-red-600">*</span>
+          </label>
+        </div>
+
+        {/* Case 2 : Newsletter (Facultative - Opt-in actif) */}
+        <div className="flex items-start gap-3">
+          <input 
+            type="checkbox" 
+            id="newsletter" 
+            name="newsletter" // On récupérera cette info
+            className="mt-1 w-4 h-4 text-black border-gray-300 rounded focus:ring-black"
+          />
+          <label htmlFor="newsletter" className="text-sm text-gray-600">
+            J'accepte de recevoir la newsletter et les opportunités d'investissement de L&A Group.
+          </label>
+        </div>
+      </div>
+
       {/* BOUTON D'ENVOI */}
       <div className="col-span-2">
         <button 

@@ -53,7 +53,7 @@ export default function Home() {
          {/* SECTION CHIFFRES CLÉS (Nouveau Composant) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
           <StatCard 
-            number="5 à 10" 
+            number="5-10" 
             label="Dossiers par an" 
             subtext="Sélectionnés avec rigueur"
           />
@@ -63,9 +63,9 @@ export default function Home() {
             subtext="TRI annuel visé"
           />
           <StatCard 
-            number="+20M€" 
-            label="Sous gestion" 
-            subtext="Confiance renouvelée"
+            number="1-10 ans" 
+            label="Horizon" 
+            subtext="Terme"
           />
           </div>
           </div>
@@ -216,13 +216,13 @@ export default function Home() {
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="py-12 border-t border-gray-200 bg-gray-50 text-center text-sm text-gray-500">
-        <p>© {new Date().getFullYear()} L&A Group. Tous droits réservés.</p>
-        <div className="mt-4 space-x-4">
-           <Link href="/mentions" className="hover:text-black">Mentions légales</Link>
-           <Link href="/confidentialite" className="hover:text-black">Confidentialité</Link>
-        </div>
-      </footer>
+      <footer className="py-10 text-center text-sm text-gray-500 border-t border-gray-100 mt-20">
+  <p className="mb-4">&copy; {new Date().getFullYear()} L&A Group. Tous droits réservés.</p>
+  <div className="flex justify-center gap-6">
+    <a href="/mentions" className="hover:text-black transition">Mentions Légales</a>
+    <a href="/confidentialite" className="hover:text-black transition">Confidentialité</a>
+  </div>
+</footer>
     </main>
   );
 }
