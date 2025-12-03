@@ -2,40 +2,38 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // BOUTON MAINTENANCE : Mettre à true pour activer, false pour désactiver
-  const MAINTENANCE_MODE = true
+  // INTERRUPTEUR : Mettre "true" pour activer la maintenance
+  const MAINTENANCE_MODE = true;
 
-  // Si la maintenance est désactivée, on laisse passer la requête immédiatement
+  // Si la maintenance est éteinte, on laisse passer tout le monde
   if (!MAINTENANCE_MODE) {
     return NextResponse.next();
   }
 
-  // --- MODE MAINTENANCE ACTIVÉ ---
+  // --- LOGIQUE DE MAINTENANCE ---
 
   const { pathname } = request.nextUrl;
 
-  // 1. Autoriser l'accès à la page de maintenance elle-même (évite une boucle infinie)
+  // 1. On laisse passer la page de maintenance elle-même (sinon boucle infinie)
   if (pathname.startsWith('/maintenance')) {
     return NextResponse.next();
   }
 
-  // 2. Autoriser l'accès aux fichiers techniques nécessaires (API, internes Next.js, assets statiques)
-  // Cela garantit que les images, styles et scripts chargent toujours sur la page de maintenance
+  // 2. On laisse passer les fichiers techniques (API, Système Next.js, Images, CSS)
   if (
     pathname.startsWith('/api') ||     // Routes API
     pathname.startsWith('/_next') ||   // Fichiers internes Next.js
     pathname.startsWith('/static') ||  // Dossier static
-    pathname.includes('.')             // Fichiers avec extensions (ex: logo.png, style.css)
+    pathname.includes('.')             // Fichiers avec extension (logo.png, style.css)
   ) {
     return NextResponse.next();
   }
 
-  // 3. Rediriger tout le reste du trafic vers la page de maintenance
+  // 3. Pour tout le reste, on redirige vers la page maintenance
   const maintenanceUrl = new URL('/maintenance', request.url);
   return NextResponse.redirect(maintenanceUrl);
 }
 
 export const config = {
-  // Appliquer ce middleware à tous les chemins
   matcher: '/:path*',
 };
