@@ -28,14 +28,14 @@ export default function MentionsLegales() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4">1. Éditeur du site</h2>
-          <p className="mb-2">Le présent site est la propriété de l'entreprise <strong>L&A Group</strong>.</p>
+          <p className="mb-2">Le présent site est la propriété de l'entreprise <strong>"L-AFFILIATES GROUP"</strong>.</p>
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Forme juridique :</strong> [SAS / SARL...] au capital de [MONTANT] €</li>
             <li><strong>Siège social :</strong> [VOTRE ADRESSE COMPLÈTE]</li>
             <li><strong>Immatriculation :</strong> RCS de [VILLE] sous le numéro [NUMÉRO SIREN]</li>
             <li><strong>Numéro de TVA intracommunautaire :</strong> [VOTRE NUMÉRO DE TVA]</li>
             <li><strong>Directeur de la publication :</strong> ROKA Luan</li>
-            <li><strong>Contact :</strong> contact.l.et.associes.group@gmail.com</li>
+            <li><strong>Contact :</strong></li>
           </ul>
         </section>
 

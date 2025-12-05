@@ -25,7 +25,7 @@ export default function Confidentialite() {
       {/* --- CONTENU LÉGAL --- */}
       <div className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-4xl font-serif font-bold mb-8">Politique de Confidentialité</h1>
-        <p className="mb-6">Chez <strong>L&A Group</strong>, la protection de vos données personnelles est une priorité.</p>
+        <p className="mb-6">Chez <strong>L-AFFILIATES GROUP</strong>, la protection de vos données personnelles est une priorité.</p>
 
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4">1. Données collectées</h2>
@@ -59,7 +59,7 @@ export default function Confidentialite() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4">5. Vos droits</h2>
-          <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour exercer ce droit, contactez-nous à : <strong>contact.l.et.associes.group@gmail.com</strong>.</p>
+          <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour exercer ce droit, contactez-nous à : <strong></strong>.</p>
         </section>
       </div>
     </main>

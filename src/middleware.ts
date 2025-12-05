@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   // Mettre à false pour désactiver la maintenance, true pour activer
-  const MAINTENANCE_MODE = true; 
+  const MAINTENANCE_MODE = false; 
 
   if (!MAINTENANCE_MODE) {
     return NextResponse.next();

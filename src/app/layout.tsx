@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "L&A Group | Investissement & Private Equity",
+  title: "L-AFFILIATES GROUP | Investissement & Private Equity",
   description: "Structurez, accompagnez et investissez dans l'ambition.",
 };
 

@@ -18,7 +18,7 @@ export default function MaintenancePage() {
       <p className="text-gray-500 text-lg md:text-xl max-w-lg mx-auto leading-relaxed">
         Nous effectuons actuellement une mise à jour importante pour améliorer votre expérience.
         <br />
-        <span className="font-semibold text-black">L-PARTNERS GROUP</span> sera de retour très bientôt.
+        <span className="font-semibold text-black">L-AFFILIATES GROUP</span> sera de retour très bientôt.
       </p>
 
       {/* Petite ligne esthétique */}

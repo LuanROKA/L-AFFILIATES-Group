@@ -39,7 +39,7 @@ export default function Home() {
               Structurer, accompagner et investir dans l'ambition.
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-xl">
-              L&A Group identifie des sociétés à fort potentiel pour créer de la valeur durable avec nos associés investisseurs.
+              L-AFFILIATES GROUP identifie des sociétés à fort potentiel pour créer de la valeur durable avec nos associés investisseurs.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="#inscription" className="px-7 py-3.5 bg-black text-white rounded-lg font-semibold shadow-lg hover:-translate-y-1 transition-transform">
@@ -110,7 +110,7 @@ export default function Home() {
              </div>
              <h3 className="font-serif text-xl font-bold mb-2 text-black">ROKA Luan — PDG</h3>
              <p className="text-gray-600 text-sm leading-relaxed">
-               Fondateur et dirigeant de L&A Group. Entrepreneur ambitieux pilotant la vision et la stratégie d'investissement du groupe.
+               Fondateur et dirigeant de L-AFFILIATES GROUP. Entrepreneur ambitieux pilotant la vision et la stratégie d'investissement du groupe.
              </p>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function Home() {
             <h2 className="font-serif text-3xl font-bold mb-3 text-black">Devenir associé</h2>
             <p className="text-gray-500 text-lg mb-6">Rejoignez le tour de table et co-investissez.</p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              En rejoignant L&A Group, vous accédez à un flux qualifié d'opportunités d'investissement et bénéficiez de notre structure de gestion.
+              En rejoignant L-AFFILIATES GROUP, vous accédez à un flux qualifié d'opportunités d'investissement et bénéficiez de notre structure de gestion.
             </p>
           </div>
           <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
@@ -217,7 +217,7 @@ export default function Home() {
 
       {/* --- FOOTER --- */}
       <footer className="py-10 text-center text-sm text-gray-500 border-t border-gray-100 mt-20">
-  <p className="mb-4">&copy; {new Date().getFullYear()} L&A Group. Tous droits réservés.</p>
+  <p className="mb-4">&copy; {new Date().getFullYear()} L-AFFILIATES GROUP. Tous droits réservés.</p>
   <div className="flex justify-center gap-6">
     <a href="/mentions" className="hover:text-black transition">Mentions Légales</a>
     <a href="/confidentialite" className="hover:text-black transition">Confidentialité</a>

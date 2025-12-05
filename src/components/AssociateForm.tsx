@@ -104,7 +104,7 @@ export default function AssociateForm() {
             className="mt-1 w-4 h-4 text-black border-gray-300 rounded focus:ring-black"
           />
           <label htmlFor="newsletter" className="text-sm text-gray-600">
-            J'accepte de recevoir la newsletter et les opportunités d'investissement de L&A Group.
+            J'accepte de recevoir la newsletter et les opportunités d'investissement de L-AFFILIATES GROUP.
           </label>
         </div>
       </div>
