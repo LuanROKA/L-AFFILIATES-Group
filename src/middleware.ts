@@ -2,12 +2,9 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Mettre à false pour désactiver la maintenance, true pour activer
-  const MAINTENANCE_MODE = false; 
+  const MAINTENANCE_MODE = true; // Mettre à 'false' pour ouvrir le site
 
-  if (!MAINTENANCE_MODE) {
-    return NextResponse.next();
-  }
+  if (!MAINTENANCE_MODE) return NextResponse.next();
 
   const { pathname } = request.nextUrl;
 
@@ -22,6 +19,4 @@ export function middleware(request: NextRequest) {
   return NextResponse.redirect(new URL('/maintenance', request.url));
 }
 
-export const config = {
-  matcher: '/:path*',
-};
+export const config = { matcher: '/:path*' };
