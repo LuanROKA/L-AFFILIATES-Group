@@ -4,7 +4,6 @@ export default function BrandLogo({ className }: { className?: string }) {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
-      // J'élargis encore la zone pour "L-AFFILIATES" qui est long
       viewBox="0 0 500 120" 
       fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
@@ -13,7 +12,7 @@ export default function BrandLogo({ className }: { className?: string }) {
     >
       <title>L-AFFILIATES GROUP Logo</title>
       
-      {/* LIGNE 1 : L-PARTNERS */}
+      {/* LIGNE 1 : L-AFFILIATES */}
       <text 
         x="250" 
         y="70" 
@@ -26,7 +25,7 @@ export default function BrandLogo({ className }: { className?: string }) {
         L-AFFILIATES
       </text>
       
-      {/* LIGNE 2 : GROUP (Espacé et centré dessous) */}
+      {/* LIGNE 2 : GROUP */}
       <text 
         x="250" 
         y="105" 
@@ -39,7 +38,6 @@ export default function BrandLogo({ className }: { className?: string }) {
         GROUP
       </text>
       
-      {/* Ligne de soulignement */}
       <rect x="150" y="115" width="200" height="3" />
     </svg>
   );
